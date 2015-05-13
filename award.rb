@@ -9,7 +9,7 @@ class Award
 
   # Helpers
   def decrement_quality(value)
-    if @quality + value < 0
+    if @quality - value < 0
       @quality = 0
     else
       @quality -= value
