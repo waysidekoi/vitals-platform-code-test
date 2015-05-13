@@ -44,7 +44,7 @@ class Award
   end
 
   def within_upper_bound_expiration?
-    @expires_in <= 9 && @expires_in > 5
+    @expires_in <= 10 && @expires_in > 5
   end
 
   def within_lower_bound_expiration?

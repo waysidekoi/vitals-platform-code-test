@@ -116,28 +116,28 @@ describe '#update_quality' do
           award.expires_in.should == initial_expires_in-1
         end
 
-        # context 'long before expiration date' do
-        #   let(:initial_expires_in) { 11 }
-        #   specify { expect(award.quality).to eq(initial_quality+1) }
-        #
-        #   context 'at max quality' do
-        #     let(:initial_quality) { 50 }
-        #   end
-        # end
+        context 'long before expiration date' do
+          let(:initial_expires_in) { 11 }
+          specify { expect(award.quality).to eq(initial_quality+1) }
 
-        # context 'medium close to expiration date (upper bound)' do
-        #   let(:initial_expires_in) { 10 }
-        #   specify { expect(award.quality).to eq(initial_quality+2) }
-        #
-        #   context 'at max quality' do
-        #     let(:initial_quality) { 50 }
-        #     specify { expect(award.quality).to eq(initial_quality) }
-        #   end
-        # end
+          context 'at max quality' do
+            let(:initial_quality) { 50 }
+          end
+        end
+
+        context 'medium close to expiration date (upper bound)' do
+          let(:initial_expires_in) { 10 }
+          specify { expect(award.quality).to eq(initial_quality+2) }
+
+          context 'at max quality' do
+            let(:initial_quality) { 50 }
+            specify { expect(award.quality).to eq(initial_quality) }
+          end
+        end
 
         context 'medium close to expiration date (lower bound)' do
           let(:initial_expires_in) { 6 }
-          specify { expect(award.quality).to eq(initial_quality+2) } # updating expires_in would change @expires_in to 5, the lower_bound value. Shouldn't this be incremented by 3, not 2?
+          specify { expect(award.quality).to eq(initial_quality+2) }
 
           context 'at max quality' do
             let(:initial_quality) { 50 }
