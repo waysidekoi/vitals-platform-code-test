@@ -8,7 +8,7 @@ class Award
   end
 
   # Helpers
-  def decrement_quality(value)
+  def decrement_quality(value=1)
     if @quality - value < 0
       @quality = 0
     else
@@ -114,7 +114,7 @@ class Award
     if on_expiration_date? || after_expiration_date?
       decrement_quality(2) 
     else
-      decrement_quality(1)
+      decrement_quality
     end
   end
 
