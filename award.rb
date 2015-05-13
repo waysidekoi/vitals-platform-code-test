@@ -67,8 +67,8 @@ class Award
     when 'Blue Distinction Plus'
       update_blue_distinction_plus_award_quality
     else
-      decrement_expires_in
       update_default_award_quality
+      decrement_expires_in
     end
   end
 
