@@ -23,6 +23,7 @@ class Award
       @quality += value
     end
   end
+
   def decrement_expires_in(value=1)
     @expires_in -= value
   end
@@ -102,7 +103,7 @@ class Award
 
     if before_expiration_date?
       decrement_quality(2)
-    else on_expiration_date?
+    else
       decrement_quality(4)
     end
   end
